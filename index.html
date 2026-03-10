@@ -260,6 +260,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
+            background-color: var(--accent); /* フォールバック色 */
         }
 
         .card-number {
@@ -341,6 +342,7 @@
             background-size: cover;
             background-position: center;
             box-shadow: 0 10px 30px var(--shadow);
+            background-color: var(--accent); /* フォールバック色 */
         }
 
         .detail-text {
@@ -563,7 +565,7 @@
             currentAttractionId: null
         };
 
-        // 観光スポットデータ（英語・イタリア語）- 最適な画像リンクに差し替え済み
+        // 観光スポットデータ（英語・イタリア語）- 確実に表示できる画像URLに修正済み
         const attractionsData = {
             en: [
                 {
@@ -572,7 +574,7 @@
                     subtitle: "The heart of Venice",
                     description: "The principal public square of Venice, dominated by the majestic St. Mark's Basilica and the Doge's Palace.",
                     highlight: "Don't miss the beautiful mosaics inside the Basilica and the view from the bell tower.",
-                    defaultImage: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=1200",
                     officialUrl: "https://www.introducingvenice.com/piazza-san-marco"
                 },
                 {
@@ -581,7 +583,7 @@
                     subtitle: "Byzantine masterpiece",
                     description: "A stunning cathedral known for its opulent design, gilded mosaics, and status as a symbol of Venetian wealth and power.",
                     highlight: "The golden mosaics covering the interior earned it the nickname 'Church of Gold'.",
-                    defaultImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1200",
                     officialUrl: "https://www.basilicasanmarco.it/"
                 },
                 {
@@ -590,7 +592,7 @@
                     subtitle: "Symbol of Venetian power",
                     description: "A masterpiece of Gothic architecture, this palace was the residence of the Doge of Venice and housed political institutions.",
                     highlight: "Must see: Tintoretto's enormous painting 'Paradise' in the Great Council Hall.",
-                    defaultImage: "https://images.unsplash.com/photo-1596466596120-2a8e3a791656?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1596466596120-2a8e3a791656?w=1200",
                     officialUrl: "https://palazzoducale.visitmuve.it/"
                 },
                 {
@@ -599,7 +601,7 @@
                     subtitle: "Romantic landmark",
                     description: "This enclosed bridge made of white limestone passes over the Rio di Palazzo and connects the Doge's Palace to the prison.",
                     highlight: "Beautiful especially at sunset when the light reflects on the white stone.",
-                    defaultImage: "https://images.unsplash.com/photo-1575467672419-5c32f0ee1cef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1575467672419-5c32f0ee1cef?w=1200",
                     officialUrl: "https://palazzoducale.visitmuve.it/"
                 },
                 {
@@ -608,7 +610,7 @@
                     subtitle: "Oldest bridge over Grand Canal",
                     description: "The oldest of the four bridges spanning the Grand Canal, famous for its design and the surrounding market area.",
                     highlight: "Explore the Rialto Market nearby for local atmosphere and fresh produce.",
-                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?w=1200",
                     officialUrl: "https://www.veneziaunica.it/"
                 },
                 {
@@ -617,7 +619,7 @@
                     subtitle: "Venice's main waterway",
                     description: "The major water-traffic corridor winding through Venice, lined with palaces, churches, and historic buildings.",
                     highlight: "Take Vaporetto Line 1 for a 45-minute cruise from Santa Lucia Station to St. Mark's.",
-                    defaultImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
                     officialUrl: "https://www.actv.it/"
                 },
                 {
@@ -626,7 +628,7 @@
                     subtitle: "18th century Venetian art",
                     description: "A magnificent palace on the Grand Canal housing the Museum of 18th-Century Venice with period furnishings and art.",
                     highlight: "Experience the atmosphere of Venetian Baroque luxury.",
-                    defaultImage: "https://images.unsplash.com/photo-1634566918136-4c2d4b7b1f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1634566918136-4c2d4b7b1f0d?w=1200",
                     officialUrl: "https://carezzonico.visitmuve.it/"
                 },
                 {
@@ -635,7 +637,7 @@
                     subtitle: "Treasures of Venetian painting",
                     description: "Houses the largest collection of Venetian paintings from the 14th to 18th centuries, including works by Bellini, Titian, and Veronese.",
                     highlight: "Don't miss Leonardo da Vinci's 'Vitruvian Man' (exhibited periodically).",
-                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?w=1200",
                     officialUrl: "https://www.gallerieaccademia.it/"
                 },
                 {
@@ -644,7 +646,7 @@
                     subtitle: "Modern art on the Grand Canal",
                     description: "One of Europe's premier museums for European and American modern art of the first half of the 20th century.",
                     highlight: "Features works by Picasso, Pollock, Dalí, and many others in a beautiful palazzo setting.",
-                    defaultImage: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=1200",
                     officialUrl: "https://www.guggenheim-venice.it/"
                 },
                 {
@@ -653,7 +655,7 @@
                     subtitle: "Hidden architectural gem",
                     description: "A unique spiral staircase tower hidden in a small courtyard, a masterpiece of Venetian Renaissance architecture.",
                     highlight: "Climb to the top for one of the best views of Venice rooftops.",
-                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?w=1200",
                     officialUrl: "https://www.scalacontarinidelbovolo.com/"
                 },
                 {
@@ -662,7 +664,7 @@
                     subtitle: "Local life in Venice",
                     description: "A lively square in the Dorsoduro district, popular with students and locals for its cafes, bars, and market stalls.",
                     highlight: "Experience authentic Venetian atmosphere away from the main tourist spots.",
-                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?w=1200",
                     officialUrl: "https://www.veneziaunica.it/"
                 },
                 {
@@ -671,7 +673,7 @@
                     subtitle: "Color and craftsmanship",
                     description: "Burano is famous for its brightly colored fishermen's houses and lace-making, while Murano is renowned for its glassmaking tradition.",
                     highlight: "Take a vaporetto to explore these charming islands and their crafts.",
-                    defaultImage: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?w=1200",
                     officialUrl: "https://www.veneziaunica.it/"
                 }
             ],
@@ -682,7 +684,7 @@
                     subtitle: "Il cuore di Venezia",
                     description: "La piazza principale di Venezia, dominata dalla maestosa Basilica di San Marco e dal Palazzo Ducale.",
                     highlight: "Da non perdere i bellissimi mosaici all'interno della Basilica e la vista dal campanile.",
-                    defaultImage: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=1200",
                     officialUrl: "https://www.basilicasanmarco.it/"
                 },
                 {
@@ -691,7 +693,7 @@
                     subtitle: "Capolavoro bizantino",
                     description: "Una splendida cattedrale nota per il suo design opulento, i mosaici dorati e lo status di simbolo della ricchezza e del potere veneziano.",
                     highlight: "I mosaici dorati che ricoprono l'interno le sono valsi il soprannome di 'Chiesa d'Oro'.",
-                    defaultImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1200",
                     officialUrl: "https://www.basilicasanmarco.it/"
                 },
                 {
@@ -700,7 +702,7 @@
                     subtitle: "Simbolo del potere veneziano",
                     description: "Capolavoro dell'architettura gotica, questo palazzo era la residenza del Doge di Venezia e ospitava le istituzioni politiche.",
                     highlight: "Da vedere: l'enorme dipinto di Tintoretto 'Paradiso' nella Sala del Maggior Consiglio.",
-                    defaultImage: "https://images.unsplash.com/photo-1596466596120-2a8e3a791656?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1596466596120-2a8e3a791656?w=1200",
                     officialUrl: "https://palazzoducale.visitmuve.it/"
                 },
                 {
@@ -709,7 +711,7 @@
                     subtitle: "Monumento romantico",
                     description: "Questo ponte coperto in pietra calcarea bianca passa sul Rio di Palazzo e collega Palazzo Ducale alle prigioni.",
                     highlight: "Bellissimo soprattutto al tramonto quando la luce si riflette sulla pietra bianca.",
-                    defaultImage: "https://images.unsplash.com/photo-1575467672419-5c32f0ee1cef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1575467672419-5c32f0ee1cef?w=1200",
                     officialUrl: "https://palazzoducale.visitmuve.it/"
                 },
                 {
@@ -718,7 +720,7 @@
                     subtitle: "Il più antico ponte sul Canal Grande",
                     description: "Il più antico dei quattro ponti che attraversano il Canal Grande, famoso per il suo design e l'area del mercato circostante.",
                     highlight: "Esplora il Mercato di Rialto nelle vicinanze per l'atmosfera locale e i prodotti freschi.",
-                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?w=1200",
                     officialUrl: "https://www.veneziaunica.it/"
                 },
                 {
@@ -727,7 +729,7 @@
                     subtitle: "Principale via d'acqua di Venezia",
                     description: "Il principale corridoio del traffico acquatico che si snoda attraverso Venezia, fiancheggiato da palazzi, chiese ed edifici storici.",
                     highlight: "Prendi il Vaporetto Linea 1 per una crociera di 45 minuti dalla Stazione di Santa Lucia a San Marco.",
-                    defaultImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
                     officialUrl: "https://www.actv.it/"
                 },
                 {
@@ -736,7 +738,7 @@
                     subtitle: "Arte veneziana del XVIII secolo",
                     description: "Un magnifico palazzo sul Canal Grande che ospita il Museo del Settecento Veneziano con arredi e arte del periodo.",
                     highlight: "Vivi l'atmosfera del lusso barocco veneziano.",
-                    defaultImage: "https://images.unsplash.com/photo-1634566918136-4c2d4b7b1f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1634566918136-4c2d4b7b1f0d?w=1200",
                     officialUrl: "https://carezzonico.visitmuve.it/"
                 },
                 {
@@ -745,7 +747,7 @@
                     subtitle: "Tesori della pittura veneziana",
                     description: "Ospita la più grande collezione di dipinti veneziani dal XIV al XVIII secolo, inclusi opere di Bellini, Tiziano e Veronese.",
                     highlight: "Da non perdere l''Uomo vitruviano' di Leonardo da Vinci (esposto periodicamente).",
-                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?w=1200",
                     officialUrl: "https://www.gallerieaccademia.it/"
                 },
                 {
@@ -754,7 +756,7 @@
                     subtitle: "Arte moderna sul Canal Grande",
                     description: "Uno dei principali musei europei per l'arte moderna europea e americana della prima metà del XX secolo.",
                     highlight: "Opere di Picasso, Pollock, Dalí e molti altri in una splendida cornice di palazzo.",
-                    defaultImage: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=1200",
                     officialUrl: "https://www.guggenheim-venice.it/"
                 },
                 {
@@ -763,7 +765,7 @@
                     subtitle: "Gioiello architettonico nascosto",
                     description: "Una torre di scale a chiocciola unica nascosta in un piccolo cortile, capolavoro dell'architettura rinascimentale veneziana.",
                     highlight: "Salite in cima per una delle migliori viste sui tetti di Venezia.",
-                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1619983081563-430fdb05155a?w=1200",
                     officialUrl: "https://www.scalacontarinidelbovolo.com/"
                 },
                 {
@@ -772,7 +774,7 @@
                     subtitle: "Vita locale a Venezia",
                     description: "Una piazza vivace nel sestiere di Dorsoduro, popolare tra studenti e locali per i suoi caffè, bar e bancarelle.",
                     highlight: "Vivi l'autentica atmosfera veneziana lontano dalle principali attrazioni turistiche.",
-                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1592409065737-a25380a0c4b4?w=1200",
                     officialUrl: "https://www.veneziaunica.it/"
                 },
                 {
@@ -781,7 +783,7 @@
                     subtitle: "Colore e artigianato",
                     description: "Burano è famosa per le sue case colorate dei pescatori e la lavorazione del merletto, mentre Murano è rinomata per la sua tradizione vetraria.",
                     highlight: "Prendi un vaporetto per esplorare queste affascinanti isole e i loro mestieri.",
-                    defaultImage: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    defaultImage: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?w=1200",
                     officialUrl: "https://www.veneziaunica.it/"
                 }
             ]
@@ -879,6 +881,9 @@
             container.innerHTML = '';
             const data = attractionsData[appState.currentLanguage];
             data.forEach(attraction => {
+                // デバッグ: 画像URLをコンソールに出力
+                console.log(`Attraction ${attraction.id}: ${attraction.defaultImage}`);
+                
                 const card = document.createElement('div');
                 card.className = 'attraction-card fade-in';
                 card.innerHTML = `
